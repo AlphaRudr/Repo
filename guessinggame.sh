@@ -13,9 +13,9 @@ while [[ $REPLY -ne $correct ]]
 do
         if [[ $REPLY -gt $correct ]]
         then
-                echo "Nope..."
+                echo "Too High..."
         else
-                echo "Nah..."
+                echo "Too Low..."
         fi
         echo
         read -p "Try again: "
