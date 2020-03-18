@@ -4,7 +4,7 @@ echo
 read -p "Guess the no. of files in this folder?  "
 
 function no_files {    
-        ls | wc -l
+        ls -a | wc -l
 }
 
 correct=$(no_files)
@@ -14,8 +14,10 @@ do
         if [[ $REPLY -gt $correct ]]
         then
                 echo "Too High..."
-        else
+        elif [[ $REPLY -lt $correct ]]
                 echo "Too Low..."
+        else
+                echo "Please enter a valid no."
         fi
         echo
         read -p "Try again: "
