@@ -15,6 +15,7 @@ do
         then
                 echo "Too High..."
         elif [[ $REPLY -lt $correct ]]
+        then
                 echo "Too Low..."
         else
                 echo "Please enter a valid no."
