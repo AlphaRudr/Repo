@@ -1,3 +1,10 @@
+LL=0                    # Lower limit of the game range
+UL=100                  # Upper limit of the game range
+DIFF=$(($UL-$LL+1))
+RANDOM=$$
+#r=$(( $RANDOM % 10 ))   #random number between 0 and 9
+#R=$(($(($RANDOM%$DIFF))+$1))
+
 echo "------------------GUESSING GAME----------------"
 echo
 echo
@@ -6,9 +13,7 @@ read -p "Guess the no of files in this folder?  "
 function no_files {
         mkdir GuessinGame
         cd GuessinGame
-        touch file{01..20}        # change here to differ game value
-#       local number=$(ls | wc -l)
-#       echo $number
+        touch file{01..$(($(($RANDOM%$DIFF))+$1))}        
         ls | wc -l
 }
 
@@ -19,9 +24,9 @@ while [[ $REPLY -ne $correct ]]
 do
         if [[ $REPLY -gt $correct ]]
         then
-                echo "Too high..."
+                echo "Nope..."
         else
-                echo "Too low..."
+                echo "Nah..."
         fi
         echo
         read -p "Try again: "
